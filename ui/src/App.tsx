@@ -256,18 +256,6 @@ function App(props: ConnectedProps<typeof connector>) {
                     primary="Settings"
                     icon={<SettingsIcon />}
                   />
-                  <ListItem
-                    button
-                    component="a"
-                    className={classes.listItem}
-                    href="https://github.com/hibiken/asynqmon/issues"
-                    target="_blank"
-                  >
-                    <ListItemIcon>
-                      <FeedbackIcon />
-                    </ListItemIcon>
-                    <ListItemText primary="Send Feedback" />
-                  </ListItem>
                 </List>
               </div>
             </Drawer>
