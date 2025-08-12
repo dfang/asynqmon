@@ -86,7 +86,7 @@ function QueueMetricsChart(props: Props) {
             return new Date(timestamp * 1000).toLocaleTimeString();
           }}
         />
-        <Legend />
+        <Legend wrapperStyle={{ marginTop: '20px', paddingTop: '10px' }} />
         {keys.map((key, idx) => (
           <Line
             key={key}

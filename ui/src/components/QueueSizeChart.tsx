@@ -53,7 +53,7 @@ function QueueSizeChart(props: Props) {
         <XAxis dataKey="queue" stroke={theme.palette.text.secondary} />
         <YAxis stroke={theme.palette.text.secondary} />
         <Tooltip />
-        <Legend />
+        <Legend wrapperStyle={{ marginTop: '20px', paddingTop: '10px' }} />
         <Bar dataKey="active" stackId="a" fill="#1967d2" />
         <Bar dataKey="pending" stackId="a" fill="#669df6" />
         <Bar dataKey="aggregating" stackId="a" fill="#e69138" />

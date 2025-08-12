@@ -89,7 +89,7 @@ function TaskDetailsView(props: Props) {
   }, [listQueuesAsync]);
 
   return (
-    <Container maxWidth="lg" className={classes.container}>
+    <Container maxWidth={false} className={classes.container}>
       <Grid container spacing={0}>
         <Grid item xs={12} className={classes.breadcrumbs}>
           <QueueBreadCrumb
@@ -98,7 +98,7 @@ function TaskDetailsView(props: Props) {
             taskId={taskId}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12}>
           {props.error ? (
             <Alert severity="error" className={classes.alert}>
               <AlertTitle>Error</AlertTitle>
@@ -226,7 +226,7 @@ function TaskDetailsView(props: Props) {
                   {taskInfo?.payload && (
                     <SyntaxHighlighter
                       language="json"
-                      customStyle={{ margin: 0, maxWidth: 400 }}
+                      customStyle={{ margin: 0 }}
                     >
                       {prettifyPayload(taskInfo.payload)}
                     </SyntaxHighlighter>
@@ -260,7 +260,7 @@ function TaskDetailsView(props: Props) {
                       <div className={classes.infoValueCell}>
                         <SyntaxHighlighter
                           language="json"
-                          customStyle={{ margin: 0, maxWidth: 400 }}
+                          customStyle={{ margin: 0 }}
                         >
                           {prettifyPayload(taskInfo.result)}
                         </SyntaxHighlighter>

@@ -121,7 +121,7 @@ function Row(props: RowProps) {
       <TableCell>
         <SyntaxHighlighter
           language="json"
-          customStyle={{ margin: 0, maxWidth: 400 }}
+          customStyle={{ margin: 0, overflow: 'hidden' }}
         >
           {prettifyPayload(task.result)}
         </SyntaxHighlighter>

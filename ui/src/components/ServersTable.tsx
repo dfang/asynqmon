@@ -163,7 +163,7 @@ export default function ServersTable(props: Props) {
   }
 
   return (
-    <TableContainer>
+    <TableContainer style={{ overflowY: 'hidden' }}>
       <Table className={classes.table} aria-label="server info table">
         <TableHead>
           <TableRow>

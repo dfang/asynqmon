@@ -27,14 +27,24 @@ import DailyStatsChart from "../components/DailyStatsChart";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(3),
+    },
+    [theme.breakpoints.up('md')]: {
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
+    },
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1.5),
     display: "flex",
-    overflow: "auto",
     flexDirection: "column",
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(2),
+    },
   },
   chartHeader: {
     display: "flex",
@@ -122,8 +132,8 @@ function DashboardView(props: Props) {
   }));
 
   return (
-    <Container maxWidth="lg" className={classes.container}>
-      <Grid container spacing={3}>
+    <Container maxWidth={false} className={classes.container} style={{ paddingLeft: '12px', paddingRight: '12px' }}>
+      <Grid container spacing={2}>
         {props.error.length > 0 && (
           <Grid item xs={12}>
             <Alert severity="error">
@@ -133,7 +143,7 @@ function DashboardView(props: Props) {
             </Alert>
           </Grid>
         )}
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
           <Paper className={classes.paper} variant="outlined">
             <div className={classes.chartHeader}>
               <div className={classes.chartHeaderTitle}>
@@ -177,7 +187,7 @@ function DashboardView(props: Props) {
           </Paper>
         </Grid>
 
-        <Grid item xs={6}>
+        <Grid item xs={12} sm={12} md={6} lg={6} xl={6}>
           <Paper className={classes.paper} variant="outlined">
             <div className={classes.chartHeader}>
               <div className={classes.chartHeaderTitle}>

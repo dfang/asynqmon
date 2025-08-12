@@ -30,7 +30,7 @@ function ProcessedTasksChart(props: Props) {
         <XAxis dataKey="queue" stroke={theme.palette.text.secondary} />
         <YAxis stroke={theme.palette.text.secondary} />
         <Tooltip />
-        <Legend />
+        <Legend wrapperStyle={{ marginTop: '20px', paddingTop: '10px' }} />
         <Bar
           dataKey="succeeded"
           stackId="a"

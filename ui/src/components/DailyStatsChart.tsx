@@ -37,7 +37,7 @@ export default function DailyStatsChart(props: Props) {
         />
         <YAxis stroke={theme.palette.text.secondary} />
         <Tooltip />
-        <Legend />
+        <Legend wrapperStyle={{ marginTop: '20px', paddingTop: '10px' }} />
         <Line
           type="monotone"
           dataKey="succeeded"

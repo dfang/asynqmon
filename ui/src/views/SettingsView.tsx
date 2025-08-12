@@ -15,14 +15,24 @@ import { ThemePreference } from "../reducers/settingsReducer";
 
 const useStyles = makeStyles((theme) => ({
   container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: theme.spacing(3),
+      paddingBottom: theme.spacing(3),
+    },
+    [theme.breakpoints.up('md')]: {
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(4),
+    },
   },
   paper: {
-    padding: theme.spacing(2),
+    padding: theme.spacing(1.5),
     display: "flex",
-    overflow: "auto",
     flexDirection: "column",
+    [theme.breakpoints.up('sm')]: {
+      padding: theme.spacing(2),
+    },
   },
   formControl: {
     margin: theme.spacing(1),
@@ -35,7 +45,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: theme.spacing(2),
   },
   select: {
-    width: "200px",
+    width: "150px",
+    [theme.breakpoints.up('sm')]: {
+      width: "200px",
+    },
   },
 }));
 
@@ -68,18 +81,15 @@ function SettingsView(props: PropsFromRedux) {
     props.selectTheme(event.target.value as ThemePreference);
   };
   return (
-    <Container maxWidth="lg" className={classes.container}>
-      <Grid container spacing={3} justify="center">
-        <Grid item xs={1} />
-        <Grid item xs={6}>
-          <Typography variant="h5" color="textPrimary">
+    <Container maxWidth="md" className={classes.container}>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Typography variant="h5" color="textPrimary" gutterBottom>
             Settings
           </Typography>
         </Grid>
-        <Grid item xs={5} />
 
-        <Grid item xs={1} />
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <Paper className={classes.paper} variant="outlined">
             <Typography color="textPrimary">Polling Interval</Typography>
             <Typography gutterBottom color="textSecondary" variant="subtitle1">
@@ -102,10 +112,8 @@ function SettingsView(props: PropsFromRedux) {
             />
           </Paper>
         </Grid>
-        <Grid xs={5} />
 
-        <Grid item xs={1} />
-        <Grid item xs={6}>
+        <Grid item xs={12}>
           <Paper className={classes.paper} variant="outlined">
             <FormControl variant="outlined" className={classes.formControl}>
               <Typography color="textPrimary">Dark Theme</Typography>
@@ -126,7 +134,6 @@ function SettingsView(props: PropsFromRedux) {
             </FormControl>
           </Paper>
         </Grid>
-        <Grid item xs={5} />
       </Grid>
     </Container>
   );
