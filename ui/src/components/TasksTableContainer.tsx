@@ -34,7 +34,6 @@ function TabPanel(props: TabPanelProps) {
       hidden={value !== selected}
       id={`scrollable-auto-tabpanel-${selected}`}
       aria-labelledby={`scrollable-auto-tab-${selected}`}
-      style={{ flex: 1, overflowY: "scroll" }}
       {...other}
     >
       {value === selected && children}
@@ -80,7 +79,6 @@ interface Props {
 const useStyles = makeStyles((theme) => ({
   container: {
     width: "100%",
-    height: "100%",
     background: theme.palette.background.paper,
   },
   header: {

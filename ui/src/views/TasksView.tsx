@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { connect, ConnectedProps } from "react-redux";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import TasksTableContainer from "../components/TasksTableContainer";
 import QueueInfoBanner from "../components/QueueInfoBanner";
@@ -21,6 +20,10 @@ function mapStateToProps(state: AppState) {
 const connector = connect(mapStateToProps, { listQueuesAsync });
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',
+    padding: theme.spacing(2),
+  },
   container: {
     paddingTop: theme.spacing(2),
   },
@@ -61,7 +64,7 @@ function TasksView(props: ConnectedProps<typeof connector>) {
   }, [listQueuesAsync]);
 
   return (
-    <Container maxWidth="lg">
+    <div className={classes.root}>
       <Grid container spacing={0} className={classes.container}>
         <Grid item xs={12} className={classes.breadcrumbs}>
           <QueueBreadCrumb queues={props.queues} queueName={qname} />
@@ -73,7 +76,7 @@ function TasksView(props: ConnectedProps<typeof connector>) {
           <TasksTableContainer queue={qname} selected={selected} />
         </Grid>
       </Grid>
-    </Container>
+    </div>
   );
 }
 
